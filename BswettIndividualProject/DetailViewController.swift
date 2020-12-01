@@ -14,6 +14,8 @@ class DetailViewController : UIViewController, UITextFieldDelegate{
     @IBOutlet weak var authorField: UITextField!
     @IBOutlet weak var titleField: UITextField!
     @IBOutlet weak var isReadSwitch: UISwitch!
+    @IBOutlet weak var navBar : UINavigationBar!
+    
     
     var item : Item! {
         didSet {
@@ -81,7 +83,23 @@ class DetailViewController : UIViewController, UITextFieldDelegate{
         textField.resignFirstResponder()
         return true
     }
+    
     @IBAction func backgroundTapped(_ sender: UITapGestureRecognizer) {
         view.endEditing(true)
 }
+   
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let identifier = segue.identifier else { return }
+
+        switch identifier {
+        case "Delete":
+            debugPrint("Delete pressed")
+            // 1
+            let destination = segue.destination as! ItemsViewController
+            destination.itemStore.deleteEntry(self.item)
+        default:
+            debugPrint("Not functioning")
+        }
+    }
 }

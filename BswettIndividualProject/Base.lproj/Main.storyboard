@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7sk-YQ-ZIN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7sk-YQ-ZIN">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -186,7 +186,13 @@
                             <outletCollection property="gestureRecognizers" destination="kYF-M4-fTt" appends="YES" id="bcI-5I-kqb"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" id="kfw-GL-Tei"/>
+                    <navigationItem key="navigationItem" id="kfw-GL-Tei">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="trash" id="TD4-b6-7U7">
+                            <connections>
+                                <segue destination="oTt-3I-xRj" kind="unwind" identifier="Delete" unwindAction="unwindWithSegue:" id="sTE-26-vwQ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="authorField" destination="AuK-Nw-bcd" id="Eaz-sw-Ui9"/>
                         <outlet property="dateCreatedField" destination="0gX-2T-XRU" id="Hyb-Rz-uib"/>
@@ -196,6 +202,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Wq-PF-OvO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="oTt-3I-xRj" userLabel="Exit" sceneMemberID="exit"/>
                 <tapGestureRecognizer id="kYF-M4-fTt">
                     <connections>
                         <action selector="backgroundTapped:" destination="R7s-Ap-ARd" id="9LL-hI-JQe"/>
